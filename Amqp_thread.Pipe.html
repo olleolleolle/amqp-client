@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Amqp_thread.Writer.html">
+<link rel="next" href="Amqp_thread.Scheduler.html">
+<link rel="Up" href="Amqp_thread.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Amqp" rel="Chapter" href="Amqp.html">
+<link title="Amqp_channel" rel="Chapter" href="Amqp_channel.html">
+<link title="Amqp_connection" rel="Chapter" href="Amqp_connection.html">
+<link title="Amqp_constants" rel="Chapter" href="Amqp_constants.html">
+<link title="Amqp_exchange" rel="Chapter" href="Amqp_exchange.html">
+<link title="Amqp_framing" rel="Chapter" href="Amqp_framing.html">
+<link title="Amqp_io" rel="Chapter" href="Amqp_io.html">
+<link title="Amqp_message" rel="Chapter" href="Amqp_message.html">
+<link title="Amqp_protocol" rel="Chapter" href="Amqp_protocol.html">
+<link title="Amqp_protocol_helpers" rel="Chapter" href="Amqp_protocol_helpers.html">
+<link title="Amqp_queue" rel="Chapter" href="Amqp_queue.html">
+<link title="Amqp_rpc" rel="Chapter" href="Amqp_rpc.html">
+<link title="Amqp_spec" rel="Chapter" href="Amqp_spec.html">
+<link title="Amqp_thread" rel="Chapter" href="Amqp_thread.html">
+<link title="Amqp_types" rel="Chapter" href="Amqp_types.html"><title>Amqp_thread.Pipe</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Amqp_thread.Writer.html" title="Amqp_thread.Writer">Previous</a>
+&nbsp;<a class="up" href="Amqp_thread.html" title="Amqp_thread">Up</a>
+&nbsp;<a class="post" href="Amqp_thread.Scheduler.html" title="Amqp_thread.Scheduler">Next</a>
+</div>
+<h1>Module <a href="type_Amqp_thread.Pipe.html">Amqp_thread.Pipe</a></h1>
+
+<pre><span class="keyword">module</span> Pipe: <code class="code">sig</code> <a href="Amqp_thread.Pipe.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">('a, 'phantom)</code> t</span> = <code class="type">('a, 'phantom) Async.Std.Pipe.t</code> </pre>
+
+
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">unit -> 'a Async.Std.Pipe.Reader.t * 'a Async.Std.Pipe.Writer.t</code></pre>
+<pre><span id="VALset_size_budget"><span class="keyword">val</span> set_size_budget</span> : <code class="type">('a, 'b) Async.Std.Pipe.t -> int -> unit</code></pre>
+<pre><span id="VALflush"><span class="keyword">val</span> flush</span> : <code class="type">('a, 'b) Async.Std.Pipe.t -><br>       Async.Std.Pipe.Flushed_result.t Async_kernel.Deferred.t</code></pre>
+<pre><span id="VALinterleave_pipe"><span class="keyword">val</span> interleave_pipe</span> : <code class="type">'a Async.Std.Pipe.Reader.t Async.Std.Pipe.Reader.t -><br>       'a Async.Std.Pipe.Reader.t</code></pre>
+<pre><span id="VALwrite"><span class="keyword">val</span> write</span> : <code class="type">'a Async.Std.Pipe.Writer.t -> 'a -> unit Async_kernel.Deferred.t</code></pre>
+<pre><span id="VALwrite_without_pushback"><span class="keyword">val</span> write_without_pushback</span> : <code class="type">'a Async.Std.Pipe.Writer.t -> 'a -> unit</code></pre>
+<pre><span id="VALtransfer_in"><span class="keyword">val</span> transfer_in</span> : <code class="type">from:'a Queue.t -> 'a Async.Std.Pipe.Writer.t -> unit Async.Std.Deferred.t</code></pre>
+<pre><span id="VALclose"><span class="keyword">val</span> close</span> : <code class="type">'a Async.Std.Pipe.Writer.t -> unit Async.Std.Deferred.t</code></pre>
+<pre><span id="VALread"><span class="keyword">val</span> read</span> : <code class="type">?consumer:Async.Std.Pipe.Consumer.t -><br>       'a Async.Std.Pipe.Reader.t -> [ `Eof | `Ok of 'a ] Async_kernel.Deferred.t</code></pre>
+<pre><span id="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">('a, 'a, unit Async_kernel.Deferred.t) Async.Std.Pipe.iter</code></pre>
+<pre><span id="VALiter_without_pushback"><span class="keyword">val</span> iter_without_pushback</span> : <code class="type">('a, 'a, unit) Async.Std.Pipe.iter</code></pre>
+<pre><span class="keyword">module</span> <a href="Amqp_thread.Pipe.Writer.html">Writer</a>: <code class="code">sig</code> <a href="Amqp_thread.Pipe.Writer.html">..</a> <code class="code">end</code></pre>
+<pre><span class="keyword">module</span> <a href="Amqp_thread.Pipe.Reader.html">Reader</a>: <code class="code">sig</code> <a href="Amqp_thread.Pipe.Reader.html">..</a> <code class="code">end</code></pre></body></html>
